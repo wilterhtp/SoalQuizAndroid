@@ -1,406 +1,293 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#173b76">
 <title>Kuis Pemrograman Web</title>
 
 <style>
-/* PENGATURAN DASAR */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #eef3fa;
-    color: #24344d;
+    background: linear-gradient(135deg, #101b3d, #243b72);
     min-height: 100vh;
+    padding: 15px;
+    color: #172033;
 }
 
-button, input {
-    font: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-/* HEADER */
-header {
-    background: linear-gradient(135deg, #173b76, #2563eb);
-    color: white;
-    padding: 19px 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 19px;
-    font-weight: bold;
-}
-
-.logo span {
-    color: #75e5ff;
-}
-
-.label-header {
-    font-size: 10px;
-    background: #ffffff25;
-    padding: 8px 10px;
-    border-radius: 20px;
-}
-
-/* KONTEN */
 .container {
-    width: 100%;
     max-width: 650px;
     margin: auto;
-    padding: 18px 14px 35px;
 }
 
-/* BANNER */
-.banner {
-    background: linear-gradient(135deg, #173b76, #376ee0);
-    border-radius: 17px;
-    padding: 23px 20px;
+.header {
     color: white;
-    margin-bottom: 17px;
-    overflow: hidden;
+    text-align: center;
+    padding: 20px 10px;
 }
 
-.banner .tag {
-    font-size: 10px;
-    color: #9beaff;
-    font-weight: bold;
-    letter-spacing: 1px;
+.header h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
 }
 
-.banner h1 {
-    font-size: 25px;
-    line-height: 1.3;
-    margin: 13px 0;
+.header p {
+    font-size: 14px;
+    color: #dbeafe;
 }
 
-.banner p {
-    font-size: 12px;
-    line-height: 1.7;
-    color: #dce9ff;
-}
-
-/* GAMBAR ILUSTRASI */
-.gambar {
-    width: 100%;
-    max-width: 260px;
-    display: block;
-    margin: 15px auto 0;
-}
-
-/* KARTU */
 .card {
     background: white;
-    border-radius: 15px;
-    padding: 19px;
-    margin-bottom: 16px;
-    box-shadow: 0 4px 15px #17345c12;
-}
-
-/* FORM IDENTITAS */
-.judul-card {
-    font-size: 17px;
-    color: #173b76;
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px #0004;
     margin-bottom: 15px;
 }
 
-label {
-    font-size: 12px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 7px;
+.illustration {
+    background: linear-gradient(135deg, #dbeafe, #ede9fe);
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.field {
-    margin-bottom: 14px;
+.illustration svg {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
 }
 
-.field input {
+.illustration h2 {
+    color: #1d4ed8;
+    margin-top: 8px;
+}
+
+input {
     width: 100%;
     padding: 14px;
-    border: 1px solid #dce4ef;
-    border-radius: 9px;
-    outline: none;
-    font-size: 14px;
-}
-
-.field input:focus {
-    border-color: #2563eb;
-}
-
-/* TOMBOL */
-.btn {
-    border: none;
-    padding: 14px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #cbd5e1;
     border-radius: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    width: 100%;
-    transition: .2s;
+    font-size: 16px;
 }
 
-.btn-utama {
+label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+button {
+    border: none;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:disabled {
+    opacity: .5;
+}
+
+.btn-next {
     background: #2563eb;
     color: white;
 }
 
-.btn-utama:active {
-    transform: scale(.98);
+.btn-prev {
+    background: #e2e8f0;
+    color: #1e293b;
 }
 
-.btn-abu {
-    background: #e9eef6;
-    color: #42536c;
-}
-
-.btn:disabled {
-    opacity: .4;
-    cursor: not-allowed;
-}
-
-/* INFORMASI */
-.informasi {
-    background: #fff7e6;
-    border-left: 4px solid #e8ad35;
-    padding: 13px;
-    border-radius: 7px;
-    font-size: 11px;
-    line-height: 1.7;
-    color: #775a20;
-    margin-top: 15px;
-}
-
-/* AREA KUIS */
-#halamanKuis {
-    display: none;
-}
-
-.identitas {
+.progress-info {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    font-size: 11px;
-    color: #72829a;
-    margin-bottom: 15px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #475569;
 }
 
-.progres-bg {
-    width: 100%;
+.progress {
     height: 9px;
-    background: #e7edf5;
+    background: #e2e8f0;
     border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 19px;
+    margin-bottom: 20px;
 }
 
-.progres {
+.progress-bar {
     height: 100%;
-    width: 10%;
-    background: linear-gradient(90deg, #2563eb, #16c4d9);
+    background: #2563eb;
+    width: 0%;
     transition: .3s;
 }
 
-.nomor {
-    display: inline-block;
-    background: #eaf2ff;
-    color: #2563eb;
-    padding: 8px 12px;
-    border-radius: 20px;
-    font-size: 11px;
+.question {
+    font-size: 19px;
     font-weight: bold;
-    margin-bottom: 14px;
-}
-
-.kategori {
-    color: #2563eb;
-    font-size: 11px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.pertanyaan {
-    font-size: 17px;
-    line-height: 1.6;
-    font-weight: bold;
+    line-height: 1.5;
     margin-bottom: 18px;
 }
 
-/* PILIHAN JAWABAN */
-.pilihan {
-    display: grid;
-    gap: 11px;
-}
-
-.opsi {
-    border: 1px solid #dce4ef;
+.option {
+    display: block;
     padding: 14px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    font-weight: normal;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 10px;
     cursor: pointer;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
-.opsi:has(input:checked) {
-    background: #eaf2ff;
-    border: 2px solid #2563eb;
-}
-
-.opsi input {
-    accent-color: #2563eb;
-    width: 17px;
-    height: 17px;
-    flex-shrink: 0;
-}
-
-/* KOTAK KODE */
-.editor {
-    background: #172337;
-    border-radius: 11px;
-    padding: 17px;
-    margin-bottom: 15px;
-    color: #e1efff;
-}
-
-.editor small {
-    color: #7de2ff;
-    font-size: 10px;
-}
-
-.editor pre {
-    font-family: Consolas, monospace;
-    font-size: 13px;
-    line-height: 1.9;
-    white-space: pre-wrap;
-    margin-top: 12px;
-}
-
-.input-kode {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #dce4ef;
-    border-radius: 9px;
-    font-family: Consolas, monospace;
-    font-size: 14px;
-    outline: none;
-}
-
-.input-kode:focus {
+.option:has(input:checked) {
     border-color: #2563eb;
+    background: #eff6ff;
 }
 
-/* NAVIGASI */
-.navigasi {
+.option input {
+    width: auto;
+    margin: 0 8px 0 0;
+}
+
+.code-box {
+    background: #111827;
+    color: #d1fae5;
+    padding: 16px;
+    border-radius: 12px;
+    margin: 15px 0;
+    overflow-x: auto;
+    font-family: Consolas, monospace;
+    line-height: 1.7;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+.code-box span {
+    color: #facc15;
+}
+
+.code-answer {
+    background: #f1f5f9;
+    border: 2px solid #cbd5e1;
+    font-family: Consolas, monospace;
+}
+
+.navigation {
     display: flex;
     gap: 10px;
-    margin-top: 22px;
+    margin-top: 20px;
 }
 
-.navigasi button {
+.navigation button {
     flex: 1;
 }
 
-/* HALAMAN HASIL */
-#halamanHasil {
-    display: none;
+.hidden {
+    display: none !important;
+}
+
+.result {
     text-align: center;
 }
 
-.nilai {
-    width: 120px;
-    height: 120px;
-    margin: 22px auto;
-    background: #e8f2ff;
+.result h2 {
     color: #2563eb;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 34px;
-    font-weight: bold;
+    font-size: 27px;
+    margin: 15px 0;
 }
 
-.rincian {
-    background: #f1f5fb;
-    border-radius: 10px;
-    text-align: left;
-    padding: 16px;
-    font-size: 13px;
-    line-height: 2;
-    margin: 20px 0;
+.score {
+    font-size: 55px;
+    font-weight: bold;
+    color: #16a34a;
+    margin: 15px;
+}
+
+.small-note {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+    margin-top: 12px;
+    text-align: center;
 }
 
 /* LAYAR PEMBATALAN */
-#halamanBatal {
-    display: none;
+
+.cancel-screen {
     position: fixed;
     inset: 0;
-    z-index: 9999;
-    background: #101d35;
+    z-index: 99999;
+    background: #7f0000;
     color: white;
+    display: none;
     align-items: center;
     justify-content: center;
+    text-align: center;
     padding: 25px;
-    text-align: center;
 }
 
-#halamanBatal h1 {
-    color: #ff7777;
-    font-size: 27px;
-    margin-bottom: 17px;
+.cancel-screen.show {
+    display: flex;
 }
 
-#halamanBatal p {
-    line-height: 1.9;
-    color: #d5dfef;
-    font-size: 14px;
+.cancel-content {
+    max-width: 500px;
+    animation: muncul .5s ease;
 }
 
-.status-batal {
-    display: inline-block;
-    background: #662d38;
-    color: #ffb7b7;
-    padding: 11px 18px;
-    border-radius: 25px;
-    margin-top: 20px;
-    font-weight: bold;
+.cancel-icon {
+    font-size: 75px;
+    margin-bottom: 15px;
 }
 
-/* KAKI HALAMAN */
-footer {
-    text-align: center;
-    color: #8b9bb1;
-    font-size: 11px;
-    padding: 20px;
+.cancel-content h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+    font-weight: 900;
 }
 
-/* PENYESUAIAN LAYAR KECIL */
-@media(max-width: 380px) {
-    .banner h1 {
-        font-size: 21px;
+.cancel-content h2 {
+    font-size: 24px;
+    color: #fecaca;
+    margin-bottom: 20px;
+}
+
+.cancel-content p {
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+@keyframes muncul {
+    from {
+        transform: scale(.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media(max-width: 400px) {
+    .cancel-content h1 {
+        font-size: 30px;
     }
 
-    .card {
-        padding: 15px;
-    }
-
-    .pertanyaan {
-        font-size: 15px;
+    .question {
+        font-size: 17px;
     }
 }
 </style>
@@ -408,395 +295,408 @@ footer {
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <div class="logo">WEB<span>QUIZ.</span></div>
-    <div class="label-header">UJIAN ONLINE</div>
-</header>
+<div class="container">
 
-<main class="container">
+    <div class="header">
+        <h1>💻 KUIS PEMROGRAMAN WEB</h1>
+        <p>Uji Pengetahuan dan Kemampuan Coding Kamu!</p>
+    </div>
 
-    <!-- HALAMAN AWAL -->
-    <section id="halamanAwal">
+    <!-- HALAMAN IDENTITAS -->
 
-        <div class="banner">
-            <div class="tag">DIGITAL SKILL CHALLENGE</div>
+    <div class="card" id="startScreen">
 
-            <h1>Kuis Pemrograman Web</h1>
+        <div class="illustration">
 
-            <p>
-                Tunjukkan kemampuanmu dalam HTML, CSS,
-                JavaScript, dan dasar pengembangan website.
-                Jawab setiap tantangan dengan teliti!
-            </p>
-
-            <!-- ILUSTRASI KODE -->
-            <svg class="gambar" viewBox="0 0 300 180"
+            <svg viewBox="0 0 200 140" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
 
-                <rect x="15" y="12" width="270" height="155"
-                      rx="15" fill="#10294f"/>
+                <rect x="22" y="15" width="156" height="95"
+                      rx="10" fill="#1E3A8A"/>
 
-                <rect x="15" y="12" width="270" height="30"
-                      rx="15" fill="#315b94"/>
+                <rect x="30" y="23" width="140" height="78"
+                      rx="5" fill="#DBEAFE"/>
 
-                <circle cx="35" cy="27" r="5" fill="#ff7474"/>
-                <circle cx="52" cy="27" r="5" fill="#ffd166"/>
-                <circle cx="69" cy="27" r="5" fill="#61d99b"/>
+                <path d="M75 49L60 63L75 77"
+                      stroke="#2563EB" stroke-width="6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
 
-                <path d="M88 75 L64 96 L88 117"
-                      stroke="#53ddff" stroke-width="7"
-                      fill="none" stroke-linecap="round"/>
+                <path d="M125 49L140 63L125 77"
+                      stroke="#2563EB" stroke-width="6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
 
-                <path d="M212 75 L236 96 L212 117"
-                      stroke="#53ddff" stroke-width="7"
-                      fill="none" stroke-linecap="round"/>
-
-                <path d="M165 65 L135 127"
-                      stroke="#c2a4ff" stroke-width="7"
+                <path d="M110 42L90 84"
+                      stroke="#7C3AED" stroke-width="6"
                       stroke-linecap="round"/>
 
-                <rect x="105" y="143" width="90" height="7"
-                      rx="4" fill="#6688bd"/>
+                <path d="M10 115H190L177 128H23L10 115Z"
+                      fill="#64748B"/>
 
-                <circle cx="254" cy="137" r="18" fill="#8058e8"/>
-                <path d="M254 126 L258 134 L267 137 L258 141 L254 149 L250 141 L241 137 L250 134 Z"
-                      fill="white"/>
+                <circle cx="100" cy="116" r="3" fill="#DBEAFE"/>
+
             </svg>
+
+            <h2>Selamat Datang, Programmer!</h2>
+            <p>Siapkan dirimu untuk mengerjakan tantangan coding.</p>
         </div>
 
-        <!-- IDENTITAS SISWA -->
-        <div class="card">
-            <h2 class="judul-card">Identitas Peserta</h2>
+        <h3>Identitas Peserta</h3>
 
-            <div class="field">
-                <label for="nama">Nama Lengkap</label>
-                <input type="text" id="nama"
-                       placeholder="Masukkan nama lengkap">
-            </div>
+        <label>Nama Lengkap</label>
+        <input type="text" id="nama" placeholder="Masukkan nama lengkap">
 
-            <div class="field">
-                <label for="kelas">Kelas</label>
-                <input type="text" id="kelas"
-                       placeholder="Contoh: XII RPL">
-            </div>
+        <label>Kelas</label>
+        <input type="text" id="kelas" placeholder="Contoh: XII RPL">
 
-            <button class="btn btn-utama"
-                    onclick="mulaiKuis()">
-                MULAI KUIS SEKARANG →
+        <button class="btn-primary" onclick="mulaiKuis()">
+            MULAI KUIS 🚀
+        </button>
+
+        <p class="small-note">
+            Kuis terdiri dari 10 soal. Pastikan koneksi dan perangkat
+            dalam kondisi baik sebelum memulai.
+        </p>
+    </div>
+
+    <!-- HALAMAN SOAL -->
+
+    <div class="card hidden" id="quizScreen">
+
+        <div class="progress-info">
+            <span id="nomorSoal">Soal 1 dari 10</span>
+            <span id="namaPeserta"></span>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div id="questionArea"></div>
+
+        <div class="navigation">
+            <button class="btn-prev" id="prevBtn"
+                    onclick="soalSebelumnya()">
+                ← Sebelumnya
             </button>
 
-            <div class="informasi">
-                <b>PERATURAN KUIS</b><br>
-                1. Kerjakan 10 soal secara mandiri.<br>
-                2. Beberapa soal meminta kamu melengkapi kode.<br>
-                3. Jangan berpindah tab atau aplikasi selama kuis.<br>
-                4. Jika meninggalkan halaman, pengerjaan dibatalkan.<br>
-                5. Nilai ditampilkan setelah semua soal selesai.
-            </div>
+            <button class="btn-next" id="nextBtn"
+                    onclick="soalBerikutnya()">
+                Berikutnya →
+            </button>
         </div>
 
-    </section>
+        <p class="small-note">
+            Periksa jawaban sebelum mengakhiri kuis.
+            Jawaban tidak dapat diubah setelah dikumpulkan.
+        </p>
 
-    <!-- HALAMAN PERTANYAAN -->
-    <section id="halamanKuis">
-
-        <div class="card">
-            <div class="identitas">
-                <span id="namaPeserta"></span>
-                <span id="kelasPeserta"></span>
-            </div>
-
-            <div class="progres-bg">
-                <div class="progres" id="progres"></div>
-            </div>
-
-            <div class="nomor" id="nomor"></div>
-
-            <div class="kategori" id="kategori"></div>
-
-            <div class="pertanyaan" id="pertanyaan"></div>
-
-            <div id="areaJawaban" class="pilihan"></div>
-
-            <div class="navigasi">
-                <button class="btn btn-abu"
-                        id="btnKembali"
-                        onclick="sebelumnya()">
-                    ← Kembali
-                </button>
-
-                <button class="btn btn-utama"
-                        id="btnLanjut"
-                        onclick="selanjutnya()">
-                    Selanjutnya →
-                </button>
-            </div>
-        </div>
-
-        <div class="informasi">
-            ⚠️ Jangan tinggalkan halaman kuis. Perpindahan
-            aplikasi atau tab dapat membatalkan pengerjaan.
-        </div>
-
-    </section>
+    </div>
 
     <!-- HALAMAN HASIL -->
-    <section id="halamanHasil" class="card">
 
-        <h2 style="color:#173b76">
-            Kuis Selesai!
-        </h2>
+    <div class="card hidden result" id="resultScreen">
 
-        <div class="nilai" id="nilai">0</div>
+        <h2>🎉 KUIS SELESAI!</h2>
 
-        <p>Selamat! Kamu telah menyelesaikan kuis.</p>
+        <p id="hasilNama"></p>
 
-        <div class="rincian">
-            Nama: <b id="hasilNama"></b><br>
-            Kelas: <b id="hasilKelas"></b><br>
-            Jumlah soal: <b>10</b><br>
-            Jawaban benar: <b id="benar"></b><br>
-            Jawaban salah: <b id="salah"></b><br>
-            Nilai akhir: <b id="nilaiAkhir"></b>
-        </div>
+        <div class="score" id="nilai"></div>
 
-        <p style="font-size:12px;color:#8290a5">
-            Terus belajar dan tingkatkan kemampuan pemrogramanmu!
+        <h3 id="predikat"></h3>
+
+        <p id="jumlahBenar"></p>
+
+        <p class="small-note">
+            Terima kasih telah mengikuti Kuis Pemrograman Web.
         </p>
 
-    </section>
+    </div>
 
-</main>
+</div>
 
-<footer>
-    © 2026 Kuis Pemrograman Web
-    <br>Belajar • Berlatih • Berkarya
-</footer>
+<!-- LAYAR PEMBATALAN -->
 
-<!-- TAMPILAN JIKA KUIS DIBATALKAN -->
-<div id="halamanBatal">
-    <div>
-        <h1>⚠ KUIS DIBATALKAN!</h1>
+<div class="cancel-screen" id="cancelScreen">
+
+    <div class="cancel-content">
+
+        <div class="cancel-icon">🚫</div>
+
+        <h1>ANDA TELAH GAGAL!</h1>
+
+        <h2>KUIS DIBATALKAN</h2>
 
         <p>
-            Sistem mendeteksi halaman kuis telah ditinggalkan.<br>
-            Seluruh jawaban pada sesi ini telah dihapus.<br><br>
-            Silakan hubungi guru pengawas untuk informasi lebih lanjut.
+            Sistem mendeteksi bahwa Anda telah meninggalkan
+            halaman kuis.
         </p>
 
-        <div class="status-batal">
-            STATUS: BATAL
-        </div>
+        <br>
+
+        <p>
+            Seluruh jawaban telah dihapus.
+            Silakan hubungi guru pengawas.
+        </p>
+
     </div>
+
 </div>
 
 <script>
 
-/* DATA 10 SOAL */
-const soalKuis = [
+// ========================================
+// DATA SOAL
+// ========================================
 
-    {
-        kategori: "DASAR HTML",
-        pertanyaan: "Apa fungsi utama HTML dalam pembuatan website?",
-        jenis: "pilihan",
-        pilihan: [
-            "Mengatur struktur dan isi halaman web",
-            "Mengatur koneksi internet",
-            "Mengelola sistem operasi",
-            "Mengatur perangkat keras"
-        ],
-        kunci: 0
-    },
+const soal = [
 
-    {
-        kategori: "STRUKTUR HTML",
-        pertanyaan: "Tag HTML yang digunakan untuk membuat judul utama adalah?",
-        jenis: "pilihan",
-        pilihan: [
-            "<p>",
-            "<h1>",
-            "<br>",
-            "<img>"
-        ],
-        kunci: 1
-    },
+{
+    pertanyaan: "Apa kepanjangan dari HTML?",
+    pilihan: [
+        "Hyper Text Markup Language",
+        "High Text Machine Language",
+        "Hyper Tool Multi Language",
+        "Home Text Markup Language"
+    ],
+    jawaban: 0
+},
 
-    {
-        kategori: "PRAKTIK HTML",
-        pertanyaan: "Lengkapi kode berikut agar menampilkan tulisan Selamat Belajar!",
-        jenis: "kode",
-        kode: "________ Selamat Belajar! ________",
-        kunci: "<h1>selamat belajar!</h1>"
-    },
+{
+    pertanyaan: "Tag HTML yang digunakan untuk membuat paragraf adalah ...",
+    pilihan: ["<h1>", "<p>", "<br>", "<div>"],
+    jawaban: 1
+},
 
-    {
-        kategori: "DASAR CSS",
-        pertanyaan: "Apa fungsi utama CSS pada sebuah website?",
-        jenis: "pilihan",
-        pilihan: [
-            "Menyimpan data siswa",
-            "Mengatur tampilan dan desain halaman",
-            "Membuat database",
-            "Menghubungkan internet"
-        ],
-        kunci: 1
-    },
+{
+    pertanyaan: "Bahasa yang digunakan untuk mengatur tampilan dan desain halaman web adalah ...",
+    pilihan: ["HTML", "PHP", "CSS", "SQL"],
+    jawaban: 2
+},
 
-    {
-        kategori: "PRAKTIK CSS",
-        pertanyaan: "Lengkapi kode CSS agar tulisan menjadi merah.",
-        jenis: "kode",
-        kode: "h1 {\n    ______: red;\n}",
-        kunci: "color"
-    },
+{
+    pertanyaan: "Tag untuk menampilkan gambar pada HTML adalah ...",
+    pilihan: ["<picture>", "<image>", "<img>", "<src>"],
+    jawaban: 2
+},
 
-    {
-        kategori: "SELECTOR CSS",
-        pertanyaan: "Selector CSS untuk memilih elemen dengan id bernama judul adalah?",
-        jenis: "pilihan",
-        pilihan: [
-            ".judul",
-            "#judul",
-            "*judul",
-            "judul."
-        ],
-        kunci: 1
-    },
+{
+    pertanyaan: "Apa fungsi JavaScript dalam sebuah website?",
+    pilihan: [
+        "Mengatur database saja",
+        "Membuat halaman web interaktif",
+        "Mengganti fungsi HTML sepenuhnya",
+        "Membuat kabel jaringan"
+    ],
+    jawaban: 1
+},
 
-    {
-        kategori: "JAVASCRIPT",
-        pertanyaan: "Apa fungsi JavaScript dalam pengembangan website?",
-        jenis: "pilihan",
-        pilihan: [
-            "Memberikan interaksi dan perilaku dinamis",
-            "Menggantikan seluruh fungsi HTML",
-            "Membuat kabel jaringan",
-            "Mengatur kapasitas hard disk"
-        ],
-        kunci: 0
-    },
+{
+    pertanyaan: "Manakah penulisan CSS yang benar untuk mengubah warna teks menjadi merah?",
+    pilihan: [
+        "color = red;",
+        "text-color: red;",
+        "font-color: red;",
+        "color: red;"
+    ],
+    jawaban: 3
+},
 
-    {
-        kategori: "PRAKTIK JAVASCRIPT",
-        pertanyaan: "Lengkapi kode berikut agar tulisan Halo Siswa! muncul pada konsol.",
-        jenis: "kode",
-        kode: '________("Halo Siswa!");',
-        kunci: "console.log"
-    },
+{
+    pertanyaan: "Lengkapilah kode HTML berikut untuk membuat judul utama.",
 
-    {
-        kategori: "HYPERLINK HTML",
-        pertanyaan: "Tag HTML yang digunakan untuk membuat tautan menuju halaman lain adalah?",
-        jenis: "pilihan",
-        pilihan: [
-            "<link>",
-            "<a>",
-            "<href>",
-            "<url>"
-        ],
-        kunci: 1
-    },
+    kode:
+`<span>____</span>Selamat Datang di Website Saya<span>____</span>`,
 
-    {
-        kategori: "GAMBAR HTML",
-        pertanyaan: "Tag HTML yang digunakan untuk menampilkan gambar adalah?",
-        jenis: "pilihan",
-        pilihan: [
-            "<picture-text>",
-            "<image>",
-            "<img>",
-            "<photo>"
-        ],
-        kunci: 2
-    }
+    tipe: "kode",
+    pilihan: [
+        "<h1> dan </h1>",
+        "<p> dan </p>",
+        "<title> dan </title>",
+        "<body> dan </body>"
+    ],
+    jawaban: 0
+},
+
+{
+    pertanyaan: "Lengkapilah kode berikut agar tombol menampilkan pesan.",
+
+    kode:
+`<button onclick="____('Halo Siswa!')">
+Klik Saya
+</button>`,
+
+    tipe: "kode",
+    pilihan: [
+        "print",
+        "alert",
+        "console",
+        "document"
+    ],
+    jawaban: 1
+},
+
+{
+    pertanyaan: "Lengkapilah kode CSS berikut agar latar belakang menjadi biru.",
+
+    kode:
+`body {
+    background-color: ____;
+}`,
+
+    tipe: "kode",
+    pilihan: [
+        "blue",
+        "bold",
+        "center",
+        "Arial"
+    ],
+    jawaban: 0
+},
+
+{
+    pertanyaan: "Lengkapilah kode JavaScript berikut untuk menampilkan tulisan di console.",
+
+    kode:
+`____("Belajar Pemrograman Web");`,
+
+    tipe: "kode",
+    pilihan: [
+        "document",
+        "alert",
+        "console.log",
+        "print"
+    ],
+    jawaban: 2
+}
 
 ];
 
-/* VARIABEL KUIS */
-let nomorSoal = 0;
-let jawaban = new Array(10).fill(null);
+// ========================================
+// VARIABEL
+// ========================================
 
+let indexSoal = 0;
+let jawabanSiswa = new Array(soal.length).fill(null);
 let namaSiswa = "";
 let kelasSiswa = "";
-
 let kuisAktif = false;
 let kuisSelesai = false;
-let kuisBatal = false;
+let kuisDibatalkan = false;
 
-let konteksSuara = null;
+// ========================================
+// AUDIO DAN GETARAN
+// ========================================
 
-/* MENYIAPKAN SUARA SETELAH INTERAKSI PENGGUNA */
-function siapkanPeringatan() {
+let audioContext = null;
+let alarmTimer = null;
 
-    try {
-        const AudioContext =
-            window.AudioContext || window.webkitAudioContext;
+function siapkanAudio() {
 
-        if (AudioContext && !konteksSuara) {
-            konteksSuara = new AudioContext();
-        }
+    const AudioContextClass =
+        window.AudioContext || window.webkitAudioContext;
 
-        if (konteksSuara &&
-            konteksSuara.state === "suspended") {
-            konteksSuara.resume();
-        }
+    if (!AudioContextClass) return;
 
-    } catch (error) {
-        konteksSuara = null;
+    if (!audioContext) {
+        audioContext = new AudioContextClass();
+    }
+
+    if (audioContext.state === "suspended") {
+        audioContext.resume().catch(() => {});
     }
 }
 
-/* MEMBUNYIKAN PERINGATAN JIKA DIDUKUNG BROWSER */
-function bunyikanPeringatan() {
+function bunyikanAlarm() {
 
-    try {
+    if (!audioContext) return;
 
-        if (!konteksSuara) return;
+    if (audioContext.state === "suspended") {
+        audioContext.resume().catch(() => {});
+    }
 
-        if (konteksSuara.state === "suspended") {
-            konteksSuara.resume();
-        }
+    if (audioContext.state !== "running") return;
 
-        const waktu = konteksSuara.currentTime;
+    const waktu = audioContext.currentTime;
 
-        for (let i = 0; i < 3; i++) {
+    // Nada alarm berulang
+    for (let i = 0; i < 6; i++) {
 
-            const osilator = konteksSuara.createOscillator();
-            const volume = konteksSuara.createGain();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
 
-            osilator.type = "sine";
-            osilator.frequency.value = 700;
+        oscillator.type = "square";
+        oscillator.frequency.setValueAtTime(
+            i % 2 === 0 ? 1000 : 700,
+            waktu + i * 0.35
+        );
 
-            volume.gain.setValueAtTime(0.0001, waktu + i * 0.35);
-            volume.gain.exponentialRampToValueAtTime(
-                0.12, waktu + i * 0.35 + 0.03
-            );
-            volume.gain.exponentialRampToValueAtTime(
-                0.0001, waktu + i * 0.35 + 0.2
-            );
+        gain.gain.setValueAtTime(0.0001, waktu + i * 0.35);
+        gain.gain.exponentialRampToValueAtTime(
+            0.8,
+            waktu + i * 0.35 + 0.03
+        );
 
-            osilator.connect(volume);
-            volume.connect(konteksSuara.destination);
+        gain.gain.setValueAtTime(
+            0.8,
+            waktu + i * 0.35 + 0.18
+        );
 
-            osilator.start(waktu + i * 0.35);
-            osilator.stop(waktu + i * 0.35 + 0.22);
-        }
+        gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            waktu + i * 0.35 + 0.30
+        );
 
-    } catch (error) {
-        console.log("Suara tidak tersedia.");
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+
+        oscillator.start(waktu + i * 0.35);
+        oscillator.stop(waktu + i * 0.35 + 0.32);
     }
 }
 
-/* GETARAN PERINGATAN JIKA DIDUKUNG HP */
-function getarkanPeringatan() {
+function getarkanHP() {
 
     if ("vibrate" in navigator) {
-        navigator.vibrate([300, 150, 300, 150, 500]);
+
+        navigator.vibrate([
+            500, 200, 500, 200, 800,
+            200, 500, 200, 500
+        ]);
+
     }
 }
 
-/* MEMULAI KUIS */
+function mulaiAlarmPeringatan() {
+
+    bunyikanAlarm();
+    getarkanHP();
+
+    if (alarmTimer) {
+        clearInterval(alarmTimer);
+    }
+
+    // Coba mengulang alarm selama layar pembatalan aktif
+    alarmTimer = setInterval(() => {
+
+        if (!kuisDibatalkan) {
+            clearInterval(alarmTimer);
+            return;
+        }
+
+        if (!document.hidden) {
+            bunyikanAlarm();
+            getarkanHP();
+        }
+
+    }, 3000);
+}
+
+// ========================================
+// MULAI KUIS
+// ========================================
+
 function mulaiKuis() {
 
     namaSiswa = document.getElementById("nama").value.trim();
@@ -807,247 +707,250 @@ function mulaiKuis() {
         return;
     }
 
-    /* Mengaktifkan suara setelah sentuhan pengguna */
-    siapkanPeringatan();
+    // Membuka audio setelah interaksi pengguna
+    siapkanAudio();
 
     kuisAktif = true;
 
-    document.getElementById("halamanAwal").style.display = "none";
-    document.getElementById("halamanKuis").style.display = "block";
+    document.getElementById("startScreen")
+        .classList.add("hidden");
+
+    document.getElementById("quizScreen")
+        .classList.remove("hidden");
 
     document.getElementById("namaPeserta").textContent =
-        "Nama: " + namaSiswa;
-
-    document.getElementById("kelasPeserta").textContent =
-        "Kelas: " + kelasSiswa;
+        namaSiswa;
 
     tampilkanSoal();
+
 }
 
-/* MENAMPILKAN SOAL */
+// ========================================
+// MENAMPILKAN SOAL
+// ========================================
+
 function tampilkanSoal() {
 
-    if (!kuisAktif || kuisBatal) return;
+    const data = soal[indexSoal];
 
-    const soal = soalKuis[nomorSoal];
+    document.getElementById("nomorSoal").textContent =
+        `Soal ${indexSoal + 1} dari ${soal.length}`;
 
-    document.getElementById("nomor").textContent =
-        "SOAL " + (nomorSoal + 1) + " / 10";
+    document.getElementById("progressBar").style.width =
+        ((indexSoal + 1) / soal.length * 100) + "%";
 
-    document.getElementById("kategori").textContent =
-        soal.kategori;
+    let html = `
+        <div class="question">
+            ${indexSoal + 1}. ${data.pertanyaan}
+        </div>
+    `;
 
-    document.getElementById("pertanyaan").textContent =
-        soal.pertanyaan;
+    if (data.kode) {
 
-    document.getElementById("progres").style.width =
-        ((nomorSoal + 1) / 10 * 100) + "%";
+        html += `
+            <div class="code-box">
+                ${data.kode
+                    .replaceAll("<span>", "")
+                    .replaceAll("</span>", "")
+                }
+            </div>
+        `;
 
-    const area = document.getElementById("areaJawaban");
-    area.innerHTML = "";
-
-    if (soal.jenis === "pilihan") {
-
-        soal.pilihan.forEach((pilihan, index) => {
-
-            const label = document.createElement("label");
-            label.className = "opsi";
-
-            const radio = document.createElement("input");
-
-            radio.type = "radio";
-            radio.name = "jawaban";
-            radio.checked = jawaban[nomorSoal] === index;
-
-            radio.addEventListener("change", function() {
-                jawaban[nomorSoal] = index;
-            });
-
-            label.appendChild(radio);
-            label.appendChild(
-                document.createTextNode(pilihan)
-            );
-
-            area.appendChild(label);
-        });
-
-    } else {
-
-        const editor = document.createElement("div");
-        editor.className = "editor";
-
-        const judul = document.createElement("small");
-        judul.textContent = "EDITOR KODE PROGRAM";
-
-        const kode = document.createElement("pre");
-        kode.textContent = soal.kode;
-
-        editor.appendChild(judul);
-        editor.appendChild(kode);
-
-        area.appendChild(editor);
-
-        const input = document.createElement("input");
-
-        input.type = "text";
-        input.className = "input-kode";
-        input.placeholder = "Masukkan kode jawaban...";
-        input.value = jawaban[nomorSoal] || "";
-
-        input.addEventListener("input", function() {
-            jawaban[nomorSoal] = input.value;
-        });
-
-        area.appendChild(input);
     }
 
-    document.getElementById("btnKembali").disabled =
-        nomorSoal === 0;
+    data.pilihan.forEach((pilihan, i) => {
 
-    document.getElementById("btnLanjut").textContent =
-        nomorSoal === 9
-        ? "SELESAI ✓"
-        : "SELANJUTNYA →";
+        const terpilih = jawabanSiswa[indexSoal] === i
+            ? "checked"
+            : "";
+
+        html += `
+            <label class="option">
+                <input
+                    type="radio"
+                    name="jawaban"
+                    value="${i}"
+                    ${terpilih}
+                    onchange="simpanJawaban(${i})"
+                >
+                ${String.fromCharCode(65 + i)}.
+                ${pilihan}
+            </label>
+        `;
+
+    });
+
+    document.getElementById("questionArea").innerHTML = html;
+
+    document.getElementById("prevBtn").disabled =
+        indexSoal === 0;
+
+    document.getElementById("nextBtn").textContent =
+        indexSoal === soal.length - 1
+            ? "SELESAI ✓"
+            : "Berikutnya →";
+
 }
 
-/* KEMBALI KE SOAL SEBELUMNYA */
-function sebelumnya() {
+// ========================================
+// SIMPAN JAWABAN
+// ========================================
 
-    if (nomorSoal > 0 && kuisAktif) {
-        nomorSoal--;
+function simpanJawaban(pilihan) {
+
+    jawabanSiswa[indexSoal] = pilihan;
+
+}
+
+// ========================================
+// NAVIGASI
+// ========================================
+
+function soalSebelumnya() {
+
+    if (indexSoal > 0) {
+        indexSoal--;
         tampilkanSoal();
     }
+
 }
 
-/* MENUJU SOAL SELANJUTNYA */
-function selanjutnya() {
+function soalBerikutnya() {
 
-    if (!kuisAktif || kuisBatal) return;
-
-    if (
-        jawaban[nomorSoal] === null ||
-        String(jawaban[nomorSoal]).trim() === ""
-    ) {
-        alert("Silakan jawab soal terlebih dahulu!");
+    if (jawabanSiswa[indexSoal] === null) {
+        alert("Silakan pilih jawaban terlebih dahulu!");
         return;
     }
 
-    if (nomorSoal < 9) {
-        nomorSoal++;
+    if (indexSoal < soal.length - 1) {
+
+        indexSoal++;
         tampilkanSoal();
+
     } else {
-        selesaikanKuis();
+
+        const kosong = jawabanSiswa.filter(
+            jawaban => jawaban === null
+        ).length;
+
+        if (kosong > 0) {
+            alert("Masih ada soal yang belum dijawab.");
+            return;
+        }
+
+        if (confirm("Apakah Anda yakin ingin mengakhiri kuis?")) {
+            hitungNilai();
+        }
+
     }
+
 }
 
-/* MEMERIKSA JAWABAN DAN MENGHITUNG NILAI */
-function selesaikanKuis() {
+// ========================================
+// HITUNG NILAI
+// ========================================
 
-    if (!kuisAktif || kuisBatal) return;
+function hitungNilai() {
 
-    let jumlahBenar = 0;
-
-    soalKuis.forEach((soal, index) => {
-
-        let nilaiJawaban = jawaban[index];
-
-        if (soal.jenis === "pilihan") {
-
-            if (nilaiJawaban === soal.kunci) {
-                jumlahBenar++;
-            }
-
-        } else {
-
-            const jawabanBersih = String(nilaiJawaban)
-                .trim()
-                .toLowerCase()
-                .replace(/\s+/g, "");
-
-            const kunciBersih = soal.kunci
-                .toLowerCase()
-                .replace(/\s+/g, "");
-
-            if (jawabanBersih === kunciBersih) {
-                jumlahBenar++;
-            }
-        }
-    });
-
-    const jumlahSalah = 10 - jumlahBenar;
-    const nilaiAkhir = jumlahBenar * 10;
+    if (kuisDibatalkan) return;
 
     kuisAktif = false;
     kuisSelesai = true;
 
-    document.getElementById("halamanKuis").style.display = "none";
-    document.getElementById("halamanHasil").style.display = "block";
+    let benar = 0;
 
-    document.getElementById("hasilNama").textContent = namaSiswa;
-    document.getElementById("hasilKelas").textContent = kelasSiswa;
+    soal.forEach((data, i) => {
 
-    document.getElementById("nilai").textContent = nilaiAkhir;
-    document.getElementById("benar").textContent = jumlahBenar;
-    document.getElementById("salah").textContent = jumlahSalah;
-    document.getElementById("nilaiAkhir").textContent = nilaiAkhir;
+        if (jawabanSiswa[i] === data.jawaban) {
+            benar++;
+        }
+
+    });
+
+    const nilaiAkhir = benar * 10;
+
+    document.getElementById("quizScreen")
+        .classList.add("hidden");
+
+    document.getElementById("resultScreen")
+        .classList.remove("hidden");
+
+    document.getElementById("hasilNama").textContent =
+        "Nama: " + namaSiswa + " | Kelas: " + kelasSiswa;
+
+    document.getElementById("nilai").textContent =
+        nilaiAkhir;
+
+    document.getElementById("jumlahBenar").textContent =
+        `Jawaban benar: ${benar} dari ${soal.length} soal`;
+
+    let predikat = "";
+
+    if (nilaiAkhir >= 90) {
+        predikat = "Sangat Baik! 🌟";
+    } else if (nilaiAkhir >= 80) {
+        predikat = "Baik! 👏";
+    } else if (nilaiAkhir >= 70) {
+        predikat = "Cukup Baik!";
+    } else {
+        predikat = "Tetap Semangat Belajar!";
+    }
+
+    document.getElementById("predikat").textContent =
+        predikat;
+
 }
 
-/* MEMBATALKAN KUIS */
+// ========================================
+// PEMBATALAN KUIS
+// ========================================
+
 function batalkanKuis() {
 
-    if (!kuisAktif || kuisSelesai || kuisBatal) return;
+    if (!kuisAktif || kuisSelesai || kuisDibatalkan) {
+        return;
+    }
 
-    kuisBatal = true;
+    kuisDibatalkan = true;
     kuisAktif = false;
 
-    /* Menghapus seluruh jawaban dari memori sesi */
-    jawaban.fill(null);
+    // Hapus semua jawaban dari memori halaman
+    jawabanSiswa.fill(null);
 
-    /* Menampilkan halaman pembatalan */
-    document.getElementById("halamanKuis").style.display = "none";
-    document.getElementById("halamanBatal").style.display = "flex";
+    // Tampilkan layar merah
+    document.getElementById("cancelScreen")
+        .classList.add("show");
 
-    /* Peringatan perangkat jika browser mengizinkan */
-    getarkanPeringatan();
-    bunyikanPeringatan();
+    // Jalankan alarm dan getaran jika diizinkan
+    mulaiAlarmPeringatan();
+
 }
 
-/* MEMANTAU PERPINDAHAN HALAMAN */
+// ========================================
+// DETEKSI MENINGGALKAN HALAMAN
+// ========================================
+
 document.addEventListener("visibilitychange", function() {
 
-    if (
-        document.visibilityState === "hidden" &&
-        kuisAktif
-    ) {
+    if (document.hidden && kuisAktif) {
+
         batalkanKuis();
+
     }
 
-    if (
-        document.visibilityState === "visible" &&
-        kuisBatal
-    ) {
-        getarkanPeringatan();
-        bunyikanPeringatan();
-    }
 });
 
-/* PERINGATAN KETIKA HALAMAN AKAN DITUTUP */
+// Peringatan tambahan saat mencoba menutup atau
+// memuat ulang halaman ketika kuis masih aktif.
 window.addEventListener("beforeunload", function(event) {
 
-    if (kuisAktif) {
+    if (kuisAktif && !kuisSelesai && !kuisDibatalkan) {
+
         event.preventDefault();
         event.returnValue = "";
-    }
-});
 
-/* MENGHAPUS JAWABAN KETIKA HALAMAN DITINGGALKAN */
-window.addEventListener("pagehide", function() {
-
-    if (kuisAktif) {
-        kuisAktif = false;
-        kuisBatal = true;
-        jawaban.fill(null);
     }
+
 });
 
 </script>
